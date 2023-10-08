@@ -1,0 +1,55 @@
+let coins = 0;
+let upgradeLevel = 0;
+let hasKey = false;
+
+function earnCoins() {
+    coins += 10;
+    updateDisplay();
+}
+
+function buyUpgrade() {
+    if (coins >= 50) {
+        coins -= 50;
+        upgradeLevel += 1;
+        updateDisplay();
+    } else {
+        alert('Not enough coins!');
+    }
+}
+
+function buyKey() {
+    if (coins >= 200) {
+        coins -= 200;
+        hasKey = true;
+        updateDisplay();
+    } else {
+        alert('Not enough coins!');
+    }
+}
+
+function fightBoss() {
+    if (!hasKey) {
+        alert('You need a key to fight the boss!');
+        return;
+    }
+
+    if (upgradeLevel > 2) {
+        document.getElementById('battleResult').textContent = "You defeated the boss!";
+    } else {
+        document.getElementById('battleResult').textContent = "The boss defeated you! Upgrade more to win!";
+    }
+}
+
+function updateDisplay() {
+    document.getElementById('coins').textContent = coins;
+
+    if (hasKey) {
+        document.getElementById('bossButton').disabled = false;
+    }
+}
+
+.room {
+    display: none;
+}
+updateDisplay();
+

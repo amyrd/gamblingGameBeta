@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-based Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Text-based Game</h1>
+    <div id="game">
+        <div id="mainRoom">
+            <h2>Main Room</h2>
+            <p>Welcome! Choose a room to enter:</p>
+            <button onclick="enterRoom('shop')">Shop</button>
+            <button onclick="enterRoom('arena')">Arena</button>
+        </div>
+
+        <div id="shop" class="room">
+            <h2>Shop</h2>
+            <button onclick="buyUpgrade()">Upgrade Weapon (50 coins)</button>
+            <button onclick="returnToMain()">Return to Main Room</button>
+        </div>
+
+        <div id="arena" class="room">
+            <h2>Arena</h2>
+            <p>Opponent Level: <span id="level">1</span></p>
+            <button onclick="fightOpponent()">Fight!</button>
+            <p id="battleResult"></p>
+            <button onclick="returnToMain()">Return to Main Room</button>
+        </div>
+
+        <p>Coins: <span id="coins">0</span></p>
+        <p>Weapon Level: <span id="weaponLevel">1</span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
